@@ -1,65 +1,86 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
-import { Alert, AppRegistry, Button, StyleSheet, View } from 'react-native';
+import React, { Component } from 'react'
+import { Image, ImageBackground, Alert, Text, View, TouchableOpacity, StyleSheet, ButtonBasics } from 'react-native'
+//import ImageHeader from '../Images';
 
 
-type Props = {};
+class List extends Component {
+   state = {
+      names: [
+         {
+            id: 0,
+            name: 'SCHEDULE',
+         },
+         {
+            id: 1,
+            name: 'VIEW GAMES',
+         },
+         {
+            id: 2,
+            name: 'FEATURED',
+         },
+         {
+            id: 3,
+            name: 'OPEN PLAY',
+         },
+         {
+          id: 4,
+          name: 'COMPETE',
+         },
+         {
+        id: 5,
+        name: 'LIVE MUSIC',
+         },
+         {
+           id: 6,
+           name: 'SEMINARS',
+         }
+      ]
+   }
+   
+   
+   render() {
+      return (
 
-export default class ButtonBasics extends Component {
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
-  }
+        <View style={{flex:1}}> 
+            {
+              <ImageBackground source={require('./Images/Background.jpg')} style={{flex:1}}>
+                
+                <View> 
+                {
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="Press Me"
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="Press Me"
-            color="#841584"
-          />
-        </View>
-        <View style={styles.alternativeLayoutButtonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="This looks great!"
-          />
-          <Button
-            onPress={this._onPressButton}
-            title="OK!"
-            color="#841584"
-          />
-        </View>
-      </View>
-    );
-  }
+                  this.state.names.map((item, index) => (
+                      <TouchableOpacity
+                        key = {item.id}
+                        style = {styles.container}
+                        onPress = {() => alert("There is nothing yet. Come back!")}>
+                        
+                        <Text style = {styles.text}>
+                            {item.name}
+                        </Text>
+                      </TouchableOpacity>
+                  ))
+                }
+                </View>
+
+              
+              
+              </ImageBackground>
+            }
+          </View>
+      )
+   }
 }
+export default List
 
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   justifyContent: 'center',
-  },
-  buttonContainer: {
-    margin: 20
-  },
-  alternativeLayoutButtonContainer: {
-    margin: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  }
+const styles = StyleSheet.create ({
+   container: {
+      padding: 10,
+      marginTop: 2,
+      
+    
+      alignItems: 'flex-start',
+   },
+   text: {
+      color: '#2C3539'
+   }
 })
-
-
