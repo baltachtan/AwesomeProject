@@ -9,6 +9,7 @@ export default class List extends Component {
          {
             id: 0,
             name: 'SCHEDULE',
+            
          },
          {
             id: 1,
@@ -61,7 +62,7 @@ export default class List extends Component {
 
             <Image 
             style={styles.stretch}
-            source={require('./Images/MainScreenImage.png')}/>
+            source={require('./Images/HomePage.png')}/>
           </View>
 
           <View style={{flex: 3}}>
