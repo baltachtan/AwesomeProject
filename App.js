@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Image, ImageBackground, Alert, Text, View, TouchableOpacity, StyleSheet, ButtonBasics } from 'react-native'
+import { Dimensions, Image, ImageBackground, Alert, Text, View, TouchableOpacity, StyleSheet, ButtonBasics } from 'react-native'
 //import ImageHeader from '../Images';
 
 
-class List extends Component {
+export default class List extends Component {
    state = {
       names: [
          {
@@ -39,10 +39,25 @@ class List extends Component {
    
    
    render() {
+
+    let ScreenHeight = Dimensions.get("window").height;
+    let ScreenWidth = Dimensions.get("window").width;
+
       return (
 
         <View style={{flex:1}}> 
-            {
+
+        <View style={{
+          flex: 1,
+         
+        }}>
+          <Image 
+          style={styles.stretch}
+          source={require('./Images/MainScreenImage.png')}/>
+        </View>
+
+
+
               <ImageBackground source={require('./Images/Background.jpg')} style={{flex:1}}>
                 
                 <View> 
@@ -61,16 +76,16 @@ class List extends Component {
                   ))
                 }
                 </View>
-
-              
               
               </ImageBackground>
-            }
           </View>
-      )
+      );
    }
 }
-export default List
+
+
+  
+
 
 const styles = StyleSheet.create ({
    container: {
@@ -82,5 +97,11 @@ const styles = StyleSheet.create ({
    },
    text: {
       color: '#2C3539'
+   },
+
+   stretch: {
+    flex: 1,
+    width: '100%',
+    
    }
 })
