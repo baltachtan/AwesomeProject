@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dimensions, Image, ImageBackground, Alert, Text, View, TouchableOpacity, StyleSheet, ButtonBasics } from 'react-native'
+import { ScrollView, Dimensions, Image, ImageBackground, Alert, Text, View, TouchableOpacity, StyleSheet, ButtonBasics } from 'react-native'
 //import ImageHeader from '../Images';
 
 
@@ -33,7 +33,16 @@ export default class List extends Component {
          {
            id: 6,
            name: 'SEMINARS',
-         }
+         },
+         {
+          id: 7,
+          name: 'VENDORS',
+        },
+        {
+          id: 8,
+          name: 'SPONSORS',
+        }
+
       ]
    }
    
@@ -46,21 +55,24 @@ export default class List extends Component {
       return (
 
         <View style={{flex:1}}> 
+        
+        
+          <View style={{flex: 1,}}>
 
-        <View style={{
-          flex: 1,
-         
-        }}>
-          <Image 
-          style={styles.stretch}
-          source={require('./Images/MainScreenImage.png')}/>
-        </View>
+            <Image 
+            style={styles.stretch}
+            source={require('./Images/MainScreenImage.png')}/>
+          </View>
 
+          <View style={{flex: 3}}>
 
 
               <ImageBackground source={require('./Images/Background.jpg')} style={{flex:1}}>
                 
+              <ScrollView> 
+
                 <View> 
+                
                 {
 
                   this.state.names.map((item, index) => (
@@ -71,13 +83,17 @@ export default class List extends Component {
                         
                         <Text style = {styles.text}>
                             {item.name}
+                        
                         </Text>
                       </TouchableOpacity>
                   ))
                 }
+                
                 </View>
-              
+                </ScrollView> 
               </ImageBackground>
+            </View>
+            
           </View>
       );
    }
@@ -89,8 +105,8 @@ export default class List extends Component {
 
 const styles = StyleSheet.create ({
    container: {
-      padding: 10,
-      marginTop: 2,
+      padding: 25,
+      marginTop: 5,
       
     
       alignItems: 'flex-start',
@@ -102,6 +118,5 @@ const styles = StyleSheet.create ({
    stretch: {
     flex: 1,
     width: '100%',
-    
    }
 })
