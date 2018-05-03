@@ -106,14 +106,17 @@ export default class List extends Component {
 
 const styles = StyleSheet.create ({
    container: {
-      padding: 25,
+      padding: 12,
       marginTop: 5,
       
     
       alignItems: 'flex-start',
    },
    text: {
-      color: '#2C3539'
+      color: '#2C3539',
+      fontFamily: 'Courier',
+      fontSize: 30,
+      fontStyle: 'normal',
    },
 
    stretch: {
